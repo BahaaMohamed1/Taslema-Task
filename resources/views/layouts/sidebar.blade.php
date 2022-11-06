@@ -25,7 +25,7 @@
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{route('orders')}}"><i
                                 class="side-menu__icon fe fe-home"></i><span
                                 class="side-menu__label">Orders</span></a>
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href=""><i
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{route('api-form')}}"><i
                                 class="side-menu__icon"></i><span
                                 class="side-menu__label">Api-Form</span></a>
                 </li>

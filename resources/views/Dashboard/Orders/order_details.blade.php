@@ -48,7 +48,8 @@
                         <td>{{$item->quantity}}</td>
                         <td>{{$item->product->price * $item->quantity}}</td>
                         <td>
-                            <form action="{{route('orderItemDelete',$item->id)}}" method="post">
+                            <a style="display: inline" class="btn btn-success" href="{{route('orderItemEdit',[$item->order_id,$item->id])}}"><i class="fa fa-edit"></i></a>
+                            <form style="display: inline" action="{{route('orderItemDelete',$item->id)}}" method="post">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger" type="submit">

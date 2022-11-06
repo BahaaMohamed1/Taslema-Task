@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -18,14 +17,10 @@ class OrderController extends Controller
     {
         return view('Dashboard.orders.order_details',compact('order'));
     }
+
     public function orderDelete(Order $order)
     {
         $order->delete();
-        return back();
-    }
-    public function orderItemDelete(OrderItem $orderItem)
-    {
-        $orderItem->delete();
         return back();
     }
 }
