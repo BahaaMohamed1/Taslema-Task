@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Dashboard.index');
+});
+
+Route::group(['prefix' => 'dashboard'], function() {
+    Route::get('orders','OrderController@index')->name('orders');
+    Route::get('orders/{order}','OrderController@orderDetails')->name('orderDetails');
+    Route::delete('orders/{order}','OrderController@orderDelete')->name('orderDelete');
+    Route::delete('orderItem/{orderItem}','OrderController@orderItemDelete')->name('orderItemDelete');
 });
