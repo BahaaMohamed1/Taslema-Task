@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Dashboard.index');
+    return view('auth.login');
 });
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard','middleware' => ['auth:admin']], function () {
 
-
+    Route::get('/',function (){
+        return view('dashboard.index');
+    });
     Route::group(['prefix' => 'orders'], function () {
         Route::get('', 'OrderController@index')->name('orders');
         Route::get('/{order}', 'OrderController@orderDetails')->name('orderDetails');
@@ -34,3 +36,5 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     Route::get('api','ApiController@index')->name('api-form');
 });
+
+Auth::routes();
