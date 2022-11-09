@@ -31,7 +31,7 @@ class OrderItemController extends Controller
         $orderItem->quantity=$request->quantity;
         $orderItem->save();
 
-        return redirect('orders/'.$orderItem->order_id);
+        return redirect('dashboard/orders/'.$orderItem->order_id);
     }
 
     /**
